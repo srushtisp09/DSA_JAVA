@@ -12,10 +12,8 @@ public class duplicateparenthesis {
                     count++;
                 }
                 if(count<1){
-                    return true;
-                }else{
-                    s.pop();
-                }
+                    return true;// dupicate exists
+                } 
             }else{
                 s.push(ch);
             }
