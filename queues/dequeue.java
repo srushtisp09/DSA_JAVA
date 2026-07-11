@@ -11,3 +11,7 @@ public class dequeue {
         System.out.println(deque );
     }
 }
+//addFirst → always adds to left
+// addLast → always adds to right
+// removeFirst → removes from left
+// removeLast → removes from right
