@@ -32,3 +32,6 @@ public class stackusingdeque {
 
     }
 }
+//  we use addLast to push
+// we use removeLast to delete element
+// we use getLast to peek the element this will return elements in the form of stack
