@@ -372,11 +372,163 @@ let msg="help!";
 //  }
 //  console.log("We used break at 3");
 //Loops with arrays
-let fruits=['mango','apple','banana','litchi','orange'];
-for(let i=0;i<fruits.length;i++){
-    console.log(i,fruits[i]);
+// let fruits=['mango','apple','banana','litchi','orange'];
+// for(let i=0;i<fruits.length;i++){
+//     console.log(i,fruits[i]);
 
-}
-for(i=fruits.length-1;i>=0;i--){
-    console.log(i,fruits[i]);
-}
+// }
+// for(i=fruits.length-1;i>=0;i--){
+//     console.log(i,fruits[i]);
+// }
+   // practice question1
+//    let num=2;
+//    let arr=[1,2,3,4,5,6,2,3];
+//   for(let i=0;i<=arr.length;i++){
+//     if(arr[i]==num){
+//         arr.splice(i,1);
+//     }
+//   }
+//   console.log(arr);
+//practice question2
+// let number=287152;
+// let count=0;
+// let copy=number;
+// while(copy>0){
+//     count++;
+//     copy=Math.floor(copy/10);
+
+// } 
+// console.log(count);
+//practice question 3
+// let number=287152;
+// let count=0;
+// let sum=0;
+// let copy=number;
+// while(copy>0){
+//    let digit=copy%10;
+//    sum+=digit;
+//    copy=Math.floor(copy/10);
+// }
+// console.log(sum);
+//practice question 4
+// let n=6;
+// let factorial=1;
+// for(let i=1;i<=n;i++){
+//     factorial*=i;
+// }
+// console.log(factorial);
+//practice question 5
+// let arr=[1,2,3,4,6,7,8];
+// let largest=0;
+// for(let i=0;i<arr.length;i++ ){
+//     if(arr[i]>largest){
+//         largest=arr[i];
+//     }
+
+// }
+// console.log(largest);
+
+
+
+///OBJECT LITERAL
+// let student={
+//     name:"Srushti",
+//     age:20,
+//     marks:99.4
+
+// }
+// let student2={
+//     name:"Sruhtii",
+//     age:13,
+//     marks:223
+
+// }
+// const item ={
+//     price:100.99,
+//     colors: ["pink","red"],
+//     discount:30
+
+// }
+
+// const post={
+//     username:"@srushtipshetti",
+//     content:"THis is my first post",
+//     likes:150,
+//     repost:5,
+//     tags:["@apnacollege","@delta"]
+
+// }; 
+
+// const student={
+//     name:"Srushti",
+//     age:21,
+//     marks:94.4,
+//     city:"Delhi"
+
+
+// };
+//aray of objects
+// const student={
+//     aman:{
+//         grade:"A"
+
+//     },
+//     shraddha :{
+//         grade: "B"
+
+//     },
+//     riya:
+//     {
+//         grade:"N"
+//     }
+// }
+//generate a number between 1 and 100
+//  let random=Math.floor(Math.random()*100)+1;
+//generate a number between 1 to 5
+// let random1=Math.floor(Math.random()*5)+1;
+//generate numbers between 25
+// let random1=Math.floor(Math.random()*5)+21;
+
+// //GUESSING GAME
+// user enters a max number and then tries to guess a random generated number between 1 to max
+// const max=prompt("Enter a max number");
+// const random=Math.floor(Math.random()*max)+1;
+//  let guess=prompt("Guess the number");
+//  while(true){
+//     if(guess=="quit"){
+//         console.log("User quit");
+//         break;
+//     }
+//     if(guess==random){
+//         console.log("You are right ! congrats!! random number was ",random);
+//         break;
+//     }else if(guess<random){
+//         guess=prompt("HINT :your guess was too small,pls try again ");
+//     }
+//     else{
+//        guess= prompt("HINT YOur guess was too lrage.please try again");
+//     }
+//  }
+ //create a program that generates a random number representing a dice roll.
+//  let random=Math.floor(Math.random()*6)+1;
+//  console.log(random);
+
+//create an object representing a car that stores the following properties for the car name,model,color,
+//print the cars name
+// const car={
+//     name:"BMW",
+//     model:"12345",
+//     color:"Black"
+// }
+// console.log(car.name);
+ // question 3
+ const person={
+    name:"Shrushti",
+    age:21,
+    city:"Mumbai"
+ }
+ person.city="Neww york";
+ person.country="United States";
+ console.log(person);
+
+
