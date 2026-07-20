@@ -107,13 +107,149 @@
 //  if(age>=18){
 //     let str="adult";
 //  }
-//  console.log(str);
-function outerFunc(){
-    let x=5;
-    let y=6;
-    function innerFunc(){
-        console.log(x);
-    }
+// //  console.log(str);
+// function outerFunc(){
+//     let x=5;
+//     let y=6;
+//     function innerFunc(){
+//         console.log(x);
+//     }
     
-innerFunc();
-} 
+// innerFunc();
+// // } 
+
+// // //hoisting the variables can be used in the function before declaration
+// // //practice 7
+// // hello
+// // namaste
+// const sum=function sum(a,b){
+//      return a+b;
+// }
+//  let hello=function print(){
+//     console.log("Helloo");
+//  } 
+// //  console.log(hello);
+
+
+// // //HIGH ORDER FUNCTION
+// // function multipleGreet(func,n){   -----> higher order function
+// //     for(let i=1;i<=n;i++){
+// //         func()
+// //     }
+// // }
+// // let greet=function(){
+// //     console.log("hello");
+// // }
+// // multipleGreet(greet,2);
+
+// let odd=function(n){
+//     console.log(n%2==0);
+// }
+// let even=function(n){
+//     console.log(n%2==0);
+// }
+
+// function oddOrEvenTestFactory(request){
+//     if(request=="odd"){
+//        let odd=function(n){
+//         console.log(!(n%2==0));
+//        }
+//        return odd;
+//     }else if(request=="even"){
+//         let even =function(n){
+//             console.log(n%2==0);
+//         }
+//         return even;
+//     }else{
+//         console.log("wrong request")
+//     }
+    
+
+// } 
+// let request="home";
+// //in console type request first then set it to either odd or  even 
+// and then make a variable and set it to the function then pass the request to teh function
+
+
+
+// //METHODS
+// const calculator={
+//     add: function (a,b){
+//         return a+b;
+//     },
+//     sub: function(a,b){
+//         return a-b;
+//     },
+//     multi: function(a,b){
+// //         return a*b;
+//     }
+// };
+// //calculator
+// {add: ƒ, sub: ƒ, multi: ƒ}
+// calculator.add(1,2)
+// 3
+// calculator.sub(1,4)
+// -3
+//﻿
+// practice question1:
+// s1.Write a JavaScript function that returns array elements larger than a 
+// number.
+// let arr=[1,2,3,4,5,6,7,8,9,10,11,12,13];
+// let num=3;
+//  function number(arr,num){
+//         for(let i=0;i<arr.length;i++){
+//             if(arr[i]>num){
+//                 console.log(arr[i]);
+//             }
+//         } 
+// }
+//  number(arr,num);
+// q2 Write a Java Script function to extract 
+// unique characters from a string
+// .Example:str=“abcdabcdefgggh”ans=“abcdefgh”
+// sol
+let str="abcdabcdefgggh"
+// let ans="abcdefgh"
+function unique(str){
+  let ans=" "
+    for(let i=0;i<str.length;i++){
+let currChar=str[i];
+if(str.indexOf(currChar)==-1){
+    ans+=currChar;
+}
+    }
+    return ans;
+}
+unique(str);
+
+
+//q3
+// Write a JavaScript function that accepts alistofcountrynamesasinputand
+// returns the longest country name as output.
+ let country=["Australia","Germany","United States of America"];
+ function longestName(country){
+    let ansIdx=0;
+    for(let i=0;i<country.length;i++){
+        let ansLen=country[ansIdx].length;
+        let currLen=country[i].length;
+        if(currLen>ansLen){
+            ansIdx=i;
+        }
+    }
+    return country[ansIdx];
+ }
+ longestName(country);
+
+//q4
+// WriteaJavaScriptfunctiontocountthenumberofvowelsinaStringargumen
+let str="siya";
+function vowels(str){
+    let count=0;
+     for(let i=0;i<str.length;i++){
+        if(str[i]=='a'||str[i]=='e'|| str[i]=='i'|| str[i]=='o'||str[i]=='u'){
+            count++;
+        }
+     }
+     return count;
+}
+vowels(str);
