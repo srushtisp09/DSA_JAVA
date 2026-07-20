@@ -520,15 +520,16 @@ let msg="help!";
 //     model:"12345",
 //     color:"Black"
 // }
-// console.log(car.name);
- // question 3
- const person={
-    name:"Shrushti",
-    age:21,
-    city:"Mumbai"
- }
- person.city="Neww york";
- person.country="United States";
- console.log(person);
+// // console.log(car.name);
+//  // question 3
+//  const person={
+//     name:"Shrushti",
+//     age:21,
+//     city:"Mumbai"
+//  }
+//  person.city="Neww york";
+//  person.country="United States";
+//  console.log(person);
 
 
+//FUNCTIONSSS
