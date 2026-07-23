@@ -12,4 +12,8 @@
 
 // These are two separate uses of the same keyword, and it's easy to blur them together since they're stacked right next to each other in your code. 
 // The class-level static is about outer-inner class relationship. The field/method-level static is about whether data is shared across all objects of that class or unique per object.
- 
+ //
+//  Y assign the candidate value as INTEGER.Min_Value and not 0 it is 
+// because the integer.min value is way too far to collide with the array values
+// if we assign it as zero then this would cause a 
+//  bug when the element 0 is actually present in the array 
