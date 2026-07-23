@@ -82,6 +82,5 @@ public class questions{
         System.out.println(simplifyPath("/../"));            // /
         System.out.println(simplifyPath("/home//foo/"));     // /home/foo
     }
-
-
+ 
 }

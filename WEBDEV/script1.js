@@ -211,19 +211,399 @@ const func=(a,b)=>{
 //     let arr=[1,2,3,4,5,6,7,8,9,10];
 //     console.log(arrayAverage(arr));
 
-// q2WriteanarrowfunctionnamedisEven()thattakesasinglenumberasargumentandreturnsifitisevenornot.
- const check=(n)=>{
-    if(n%2==0){
-        return "even";
-    }else{
-        return "not even";
-    }
+// // q2WriteanarrowfunctionnamedisEven()thattakesasinglenumberasargumentandreturnsifitisevenornot.
+//  const check=(n)=>{
+//     if(n%2==0){
+//         return "even";
+//     }else{
+//         return "not even";
+//     }
 
- };
-let n=9;
-check(n);
+//  };
+// let n=9;
+// check(n);
 
 // u can use implicit return also
 
 // let num=7;
 // const isEven=(num)=> num%2==0;
+// //q4
+// // --> very imp question
+// this in JavaScript — Complete Revision Notes
+
+// Rule 1 — this depends on WHO calls the function
+// Not where it's defined. Not where it's written. Who calls it.
+
+// 4 Cases of this
+// Case 1 — Global scope
+// javascriptconsole.log(this); // window
+// this at top level = window object.
+
+// Case 2 — Regular function called alone
+// javascriptfunction greet(){
+//     console.log(this); // window
+// }
+// greet(); // window is calling it
+
+// Case 3 — Method called on object
+// javascriptconst student = {
+//     name: "Srushti",
+//     greet: function(){
+//         console.log(this); // student object ✅
+//     }
+// }
+// student.greet(); // student is calling it
+
+// Case 4 — Regular function inside method (callback trap)
+// javascriptconst student = {
+//     name: "Srushti",
+//     greet: function(){
+//         function inner(){
+//             console.log(this); // window ❌ not student
+//         }
+//         inner(); // called as plain function
+//     }
+// }
+// student.greet();
+// Even though inner is inside the object's method — it's called as a plain function → this = window.
+
+// Arrow Function Fix
+// javascriptconst student = {
+//     name: "Srushti",
+//     greet: function(){
+//         const inner = () => {
+//             console.log(this); // student ✅
+//         }
+//         inner();
+//     }
+// }
+// Arrow functions inherit this from parent scope — parent is greet which is called on student → this = student.
+
+// var vs let with this
+// javascriptvar name = "global";  // attached to window
+// let age = 20;         // NOT attached to window
+
+// console.log(this.name); // "global" ✅
+// console.log(this.age);  // undefined ❌
+
+// setTimeout trap
+// javascriptconst obj = {
+//     name: "Srushti",
+//     greet: function(){
+//         setTimeout(function(){
+//             console.log(this); // window ❌
+//         }, 1000);
+        
+//         setTimeout(() => {
+//             console.log(this); // obj ✅ arrow fixes it
+//         }, 1000);
+//     }
+// }
+
+// Quick Reference Table
+// SituationthisGlobal scopewindowRegular function called alonewindowMethod called on objectthat objectRegular function inside methodwindowArrow function anywhereinherited from parentsetTimeout with regular functionwindowsetTimeout with arrow functioninherited from parent
+
+// Interview Questions Pattern
+// Whenever you see this in a question — ask these 3 questions:
+
+// Is it an arrow function or regular function?
+
+// Arrow → look at parent scope
+// Regular → look at who calls it
+
+
+// Who is calling this function?
+
+// obj.method() → obj
+// method() → window
+
+
+// Is the variable declared with var or let?
+
+// var → attached to window
+// let/const → not attached to window
+
+
+
+
+// The Callback Trap (most common interview trick)
+// javascriptlet length = 4;      // let → not on window
+
+// function callback(){
+//     console.log(this.length); // this = window, window.length = 0
+// }
+
+// const obj = {
+//     length: 5,
+//     method(callback){
+//         callback(); // plain call → this = window
+//     }
+// }
+
+// obj.method(callback); // output: 0
+// Traps:
+
+// length = 4 → makes you think 4
+// length: 5 → makes you think 5
+// Real answer → 0 because let + plain call + this = window
+
+//ARRAY METHODS
+// let arr=[1,2,3,4,5,6];
+// function print(){
+//    console.log(el);
+// };
+// // arr.forEach(print);
+// //OR
+// arr.forEach(function(el){
+//    console.log(el);
+// });
+
+// //  //we can also use arrow functiona
+// //  arr.forEach((el)=>{
+// //    console.log(el);
+// //  });
+//  //we can also use for each for objects
+//  let arr=[{
+//    name:"aman",
+//    age:23,
+//  },
+// {
+//    name:"shreya",
+//    age:21,
+// },
+// {
+//    name:"yashu",
+//    age:12,
+// }];
+// arr.forEach((student)=>{
+//    console.log(student.age);
+// });
+
+// //MAP FUNCTION
+// let num=[1,2,3,4,5,6];
+// let newarrr=num.map(function(el){
+//    return el*2;
+// })
+// let gpa=arr.map((el)=>{
+// //    return el.age/10;
+// // });
+
+
+// ///FILTER FUNCTION
+// let nums=[2,4,1,5,6,2,7,8,9];
+// let ans=nums.filter((el)=>{
+//    return el%2==0;
+// })
+
+//EVERY ---> only returns true or false
+  
+// [1,2,3,4].every((el)=>el%2==0);
+// --> false
+//[1,2,3,4].every((el)=> el%2!=0);
+// --->false;
+
+
+//SOME-->returns true if some element gives true else false
+// [1,2,3,4].some((el)=>el%2==0);
+// -->true
+
+//REDUCE--> reduces the  arr elements to single value
+// // [1,2,3,4].reduce((res,ele)=>(res+ele)); 
+// // -->10
+
+// ///MAXIMUM ELEMENT IN AN ARRAY
+// let arr=[1,4,2,5,6,7,2,9,2];
+// let max=-1;
+// for(let i=0;i<arr.length;i++ ){
+//    if(arr[i]>max){
+//       max=arr[i];
+//    }
+// }
+// console.log(max);
+
+
+
+
+///using reduce function
+// let arr=[2,3,4,67,134,3];
+// let max=arr.reduce((max,el)=> {
+//    if(max<el){
+//       return el;
+//    }else{
+//       return max;
+//    }
+// });
+// console.log(max);
+
+
+///PRACTICE QUESTION
+// //Q1
+// let arr=[10,20,30,40,50];
+// // arr.every((el)=>el%10==0); 
+
+// //Q2
+// let arr=[12,3,4,5];
+ 
+// let min=arr.reduce(function(min,el){
+//    if(min>el){
+//        return el;
+//    }else{
+//       return min;
+//    }
+// })
+// console.log(min);
+
+// //DEFAULT PARAMETERS
+// function sum(a,b=3){
+//   return a+b;
+
+// }
+// sum(2,5) //overhere b value will be 3
+// --> b is the default parameter
+
+//SPREAD---> EXpand an iteral into multiple values
+// let arr1=[1,2,3,4,5,6,8,90];
+// Math.min(...arr); over here individual elements will be passed into arr
+// --> // this will return min of array
+
+//SPREAD WITH ARRAY LITERAL
+// let arr= [1,2,4,5,6];
+// let  newarr=[...arr];
+// //also with stringss
+// let char=[..."hello"];
+// let odd=[1,3,5,7,9];
+// // let even=[2,4,6,8,10];
+// // let nums=[...odd,...even,] --> order is followed here
+
+// //SPREAD WITH OBJECT LITERAL 
+// const data={
+//    email:'ironman@gmail.com',
+//    password:'abcd',
+
+// };
+// const dataCopy={...data,id:123};
+
+
+///let say we want to convert arr to object
+// then //
+// consider a array 
+//as we know an object stores values as key and value pair 
+// since we are only spreading the arr this means we only have arr values, so to store
+//as key value pair it will automatically use index as keys 
+// //same happens when ur converting string to object using spread
+// let arr=[1,2,3,4,5];
+// let obj1={...arr};
+// let obj2={..."hello"};
+
+
+//####REST-->ALLOWS A function to take an indefinite number of arguments and bundle them in a array
+// Collects multiple arguments into an array:
+//Use when you don't know how many arguments will be passed.
+
+// function sum(...args){
+//  return args.reduce((add,el)=> add+el);
+// }
+// function sum(...args){
+//    for(let i=0;i<args.length;i++){
+//       console.log("you gave us :",args[i]);
+//    }
+// }
+// sum(1,2);
+// function min(){
+//    console.log(arguments.length);---> over here u pass arguments which is basically collections
+//    console.log(arguments); --> in this if u dont pass paramteres also you get output because it is inbuilt 
+// }                          --> you cant push or pop on arguments
+// function min(msg,...args){ --> we can also have other paramater along with the arguments but this should be added before the arguments
+//    console.log(msg);
+//    return args.reduce((min,el)=>{
+//       if(min>el){
+//          return el
+//       }else{
+//          return min;
+//       }
+//    });
+// }
+
+
+//# destructing 
+// destructing referes to store values of array into multiple variables
+//storing one  by one through the index would need a lot of time
+//thus this can be done by using destructing 
+// but only the element of 0 th index and 1st index will be added to variable
+// it is done order wise
+// so when u do that the elemnt of 0 th index will be stored in winner and the element of 1st index wil be stored in the second variable
+//
+// let names=["srushti","kiara","kishi","sua"];
+// let [winner,runnerup,other]=names;
+
+
+// we can also combine the topic of rest and destructing 
+// if we need to access all the elements including winner and runner up we can write ...args
+// then all the arguments will be returned
+// let names=["srushti","kiara","rishi"];
+// let[winner,runnerup,...args]=names;
+
+
+
+//DESTRUCTING for objects
+// const student={
+//    name:"karan",
+//    age:21,
+//    class:8,
+//    subjects:["hindi","english","math","science"],
+//    password:"wsre",
+//    username:"heloo123"
+// }
+//  let{username,password}=student;
+//  //you can also write like this
+// //  let{username:user,password}=student;///here if u search username u wont get anything instead if u search user then you get the answer
+// //you can also assign default value
+// let{username,password,city="Mumbai"}=student;
+
+
+
+
+
+
+///PRACTICE QUESTIONS
+//Q1s1.Square and sum the array elements using the arrow function and then find 
+//  the average of the array
+// let arr=[1,2,3,4,5];
+// let square=arr.map((num)=> num*num);
+// console.log(square);
+//   let sum= square.reduce((acc,curr)=> acc+ curr ,0)  
+// console.log(square);
+//  let avg=sum/arr.length;
+//  console.log(avg);
+
+ //Q2 Createanewarrayusingthemapfunctionwhoseeachelementisequaltotheoriginalelementplus5.
+//  let newArr=arr.map(function(el){
+//       return el+5;
+//  })
+//  console.log(newArr);
+
+ //Q3
+//  let words=["hello","world","javascript"];
+//  let upper=words.map(word=> word.toUpperCase());
+//  console.log(upper);
+ // whenever u need to transform each element and need the resultant array of 
+ // the same length use map function
+ //Q4
+ //WriteafunctioncalleddoubleAndReturnArgswhichacceptsanarrayandavariablenumberofarguments.Thefunctionshouldreturnanewarraywiththeoriginalarrayvaluesandalloftheadditionalargumentsdoubled
+  const doubleAndReturnArgs=(arr, ...args)=>[ ...args,...args.map((v)=>v*2)];
+
+ //Q5
+//  Qs5.WriteafunctioncalledmergeObjectsthatacceptstwoobjectsandreturnsanewobjectwhichcontainsallthekeysandvaluesofthefirstobjectandsecondobject
+let student1={
+   name:'Srushti',
+   age:21,
+   marks:25,
+   username:'srushti99@gmail.com'
+}
+let student2={
+   name:'Yash',
+   age:24,
+marks:32,
+username:'ki@gmail.com'
+}
+const mergeObject=  (student1,student2)=>({...student1,...student2});
