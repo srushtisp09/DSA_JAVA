@@ -11,7 +11,7 @@ public class bst {
             this.right=null;
         }
     }
-    
+    // "We pass root.right so that we search only among values that are bigger than the node being deleted (that's the first requirement). But among those bigger values, we also need the smallest one — one that's still bigger than everything on the left side of the deleted node, but not bigger than it needs to be. So within root.right's subtree, we walk left to find its minimum."BS
     public static Node findInorderSuccessor(Node root){
         while(root.left!=null){
             root=root.left;
@@ -36,6 +36,7 @@ public class bst {
             else if(root.right==null){
                 return root.left;
             }
+
             //case 3: both childeren
             //find the inorder successor and replace it this deletes the node
             Node IS=findInorderSuccessor(root.right);
