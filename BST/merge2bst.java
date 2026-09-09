@@ -78,3 +78,5 @@ public static void preorder(Node root){
         preorder(root);
     }
 }
+// T.C =based on the arrlength if arr1 length is n and arr2.length is m then the tc of the program will be based on the arr1 which
+// has greater length
