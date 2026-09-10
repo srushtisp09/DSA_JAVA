@@ -1,0 +1,14 @@
+##Concept of priority Queue
+A priority heap (usually just called a heap, and in Java exposed as PriorityQueue) is a data structure that always lets you grab the "highest priority" element quickly — without needing the rest of the data to be sorted.
+##Priority Queue in JCF
+##functions in priority queue
+As queue we add in rear and remove from front but over here the addition takes places according to priority and removal also happens according to the priority itself .and thus the t.c are given :
+1.add()---0(logn)
+
+2.remove --- 0(logn)
+
+3.peek() ---0(1)
+
+how to use priority queue
+PriorityQueue<Integer> pq= new Priority Queue<>();
+less the int value more is the priority
