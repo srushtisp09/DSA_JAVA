@@ -34,6 +34,9 @@ public class InsertinHeap {
             }
             System.out.println();
         }
+        public int peek(){
+            return arr.get(0);
+        }
 
     }
     public static void main(String args[]){
@@ -43,5 +46,10 @@ public class InsertinHeap {
             h.add(v);
         }
         h.print();
+        System.out.println(h.peek());
     }
 }
+// They belong inside Heap specifically because of encapsulation — add() and print() operate directly on arr, which is Heap's own field. Putting them inside the class that owns the data means:
+
+// They can access arr directly (arr.add(data)), without needing to pass it in as a parameter or expose it publicly.
+// // Anyone using a Heap object just calls h.add(5) or h.print() — they don't need to know arr exists at all. That's the whole point of an object: it bundles data + the operations that make sense on that data into one unit
