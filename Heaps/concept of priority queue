@@ -12,3 +12,26 @@ As queue we add in rear and remove from front but over here the addition takes p
 how to use priority queue
 PriorityQueue<Integer> pq= new Priority Queue<>();
 less the int value more is the priority
+
+
+
+#Heap is a type of binary Tree
+Min Heap Max Heap
+Heap:What makes it a heap?
+1.BinaryTree: at most 2 children
+
+2.Complete Binary Tree:
+ CBT is a BT in which all levels are completely filled except possibly the last one,ehich is filled from the left to right.
+
+ 3.Heap order property 
+ Children >=Parent(minHeap)
+ Children<=Parent(maxHeap) 
+
+HEAP is not implemented as a class
+When u implement a heap using class then it works same as that of tree wherein u create a class and then a constructor but then when u perform the operations like add or insert a new element then this takes0(n) which is not a good T>C also there would be cases when u have to convert it to min heap this also requires extra time so implementing heap using tree is not preffered and thus we use arraylist in which we also use a method to get the relationship between the parent and the child node that is done using left and right variables we make two variables left and right 
+left=2*i+1 gives u the left child of the root node the i is the index of root node
+right=2*i+2  this gives the value of right node 
+u can also consider it as 
+left=2*i
+right=2*i+1
+if u consider 0 as -1 then else refer the above one     
