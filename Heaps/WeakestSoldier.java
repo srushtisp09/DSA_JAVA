@@ -9,10 +9,13 @@ public class WeakestSoldier {
             this.idx=idx;
 
         }
+        //Row implements the Comparable<Row> interface, which requires a method called compareTo. 
+        // When you write your own version of compareTo, you're overriding the one defined by the interface. 
+        // The @Override tag confirms that's exactly what you meant to do.
         @Override
         public int compareTo(Row r2){
             if(this.soldiers==r2.soldiers){
-                return this.idx-r2.soldiers;
+                return this.idx-r2.idx;
             }else{
                 return this.soldiers-r2.soldiers;
             }
@@ -27,11 +30,11 @@ int k=2;
 PriorityQueue<Row> pq=new PriorityQueue<>();
 for(int i=0;i<army.length;i++){
     int count=0;
-    for(int j=0;j<army.length;j++){
+    for(int j=0;j<army[i].length;j++){
         count+=army[i][j]==1?1:0;
 
     }
-    pq.add(new Row(i, i));
+    pq.add(new Row(count, i));
 
 }
 for(int i=0;i<k;i++){
