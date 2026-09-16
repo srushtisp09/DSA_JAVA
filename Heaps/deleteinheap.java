@@ -1,7 +1,5 @@
-  
-package Heaps;
 
- 
+package Heaps;
 import java.util.*;
  
 public class deleteinheap {

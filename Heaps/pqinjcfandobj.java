@@ -37,7 +37,7 @@ public class pqinjcfandobj {
         // priority Queue for objects
         // to compare objects in priority queue we dont have anything as such so we introduce a interface that will be implemented in the class 
         // this helps us to compare the class
-        // The interface that weare using is called Comparable that is implemented in the class and this will contain fucntions that we will use to compare our classes
+        // The interface that we are using is called Comparable that is implemented in the class and this will contain fucntions that we will use to compare our classes
         // A compareTo function is used to compare the classes the compareto function exists in the comparable interface  
         // above is the syntax   
         PriorityQueue<Student> pq2=new PriorityQueue<>();
